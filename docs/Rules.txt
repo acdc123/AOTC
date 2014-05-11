@@ -1,0 +1,12 @@
+Start of each level:
+1) A sequence of n integers x1,x2,x3...,xn will be displayed.
+2) Based on the given sequence, the player must tell if it is possible if there exists an arithmetic expression that yields X any combination of {+,-,*,/} is placed between elements of the sequence.
+3) A corect answer will allow the user to proceed to the next level while a wrong answer stops the game.
+4) The total amount of time it took the player to answer the level correctly is recorded.
+5) High scores will be based on number of levels solved and time.
+
+*n=5
+*x=42
+*Tingin nyo dpaat retain natin yung divide na operator?
+*Yung arithmetic expression ay solved from left to right (ignored yung opertor precedence)
+*To prevent cheating, kapag nag navigate yung user away sa game dapat pagresume iba na yung sequnce tapos reset timer nalang?
