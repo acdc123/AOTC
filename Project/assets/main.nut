@@ -1,3 +1,6 @@
+emo.Runtime().import("game.nut");
+emo.Runtime().setOptions(OPT_ORIENTATION_PORTRAIT);
+
 class Main {
     /*
      * Called when this class is loaded
@@ -38,5 +41,5 @@ class Main {
 }
 
 function emo::onLoad() {
-    emo.Stage().load(Main());
+    emo.Stage().load(Game());
 }
