@@ -49,20 +49,19 @@ class Game {
 			if (dragStart) {
 				dragStart = false;
 			}
+			local min = 1 << 31 - 1;
+			local minIndex = -1;	
 			for (local i = 0; i < slotList.len(); i++) {
-				local min = 500;
-				local minIndex = -1;
 				if (blockSprite.collidesWith(slotList[i])) {
 					local dist = getDistance(blockSprite.getX(), blockSprite.getY(), slotList[i].getX(), slotList[i].getY());
-					print(dist);
 					if (dist < min) {
 						min = dist;
 						minIndex = i;
 					}
-				}	
-				if (minIndex != -1) {
-					blockSprite.move(slotList[minIndex].getX(), slotList[minIndex].getY());
 				}
+			}
+			if (minIndex != -1) {
+				blockSprite.move(slotList[minIndex].getX(), slotList[minIndex].getY());
 			}
 		}
 	}
