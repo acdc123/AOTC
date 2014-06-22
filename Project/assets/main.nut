@@ -1,7 +1,20 @@
-emo.Runtime().import("game.nut");
+aotc <- {
+	game = {},
+	gen = {}
+}
+
+emo.Runtime().import("gen/util.nut");
+emo.Runtime().import("gen/sprite.nut");
+emo.Runtime().import("gen/level.nut");
+
+emo.Runtime().import("constants/gameConst.nut");
+emo.Runtime().import("constants/spriteConst.nut");
+
+emo.Runtime().import("game/level.nut");
+
 emo.Runtime().setOptions(OPT_ORIENTATION_PORTRAIT);
 
-class Main {
+class aotc.game.Main {
     /*
      * Called when this class is loaded
      */
@@ -41,5 +54,5 @@ class Main {
 }
 
 function emo::onLoad() {
-    emo.Stage().load(Game());
+    emo.Stage().load(aotc.game.Level());
 }
