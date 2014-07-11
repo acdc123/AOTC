@@ -1,8 +1,9 @@
-class aotc.game.Block extends aotc.game.Sprite {
+class aotc.game.Block extends aotc.game.SpriteSheet {
   selected = false;
-  
-  constructor() {
-    base.constructor(SPRITE_BLOCK);
+
+  constructor(type) {
+    base.constructor(ATLAS_GAME);
+    frame = BLOCK_TYPES[type];
   }
 
   function isSelected(){
@@ -12,5 +13,4 @@ class aotc.game.Block extends aotc.game.Sprite {
   function setSelected(_selected){
     this.selected = _selected;
   }
-  
 }

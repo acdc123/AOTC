@@ -4,13 +4,14 @@ aotc <- {
 }
 
 emo.Runtime().import("gen/util.nut");
-emo.Runtime().import("gen/sprite.nut");
+emo.Runtime().import("gen/spritesheet.nut");
 emo.Runtime().import("gen/level.nut");
 
 emo.Runtime().import("constants/gameConst.nut");
 emo.Runtime().import("constants/spriteConst.nut");
 
 emo.Runtime().import("game/block.nut");
+emo.Runtime().import("game/slot.nut");
 emo.Runtime().import("game/level.nut");
 
 emo.Runtime().setOptions(OPT_ORIENTATION_PORTRAIT);

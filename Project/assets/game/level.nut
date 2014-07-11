@@ -72,7 +72,7 @@ class aotc.game.Level extends aotc.gen.Level {
 		
 	function initializeSlots(){
 		for (local i = 0; i < 3; i++) {
-			local slot = aotc.game.Sprite(SPRITE_SLOT);
+			local slot = aotc.game.Slot();
 			slotList.push(slot);
 			slot.moveCenter(stage.getCenterX() - 80 + 80 * i, stage.getCenterY() + 50);
 		}	
@@ -85,7 +85,7 @@ class aotc.game.Level extends aotc.gen.Level {
 	function initializeBlocks(){
 		local z = Z_ORDER_BLOCK_START;
 		for (local i = 0; i < 3; i++) {
-			local block = aotc.game.Block();
+			local block = aotc.game.Block(i);
 			blockList.push(block);
 			block.setZ(z--);
 			block.moveCenter(stage.getCenterX() - 80 + 80 * i, stage.getCenterY() - 50);	
