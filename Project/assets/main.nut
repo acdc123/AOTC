@@ -10,6 +10,7 @@ emo.Runtime().import("gen/level.nut");
 emo.Runtime().import("constants/gameConst.nut");
 emo.Runtime().import("constants/spriteConst.nut");
 
+emo.Runtime().import("game/logic.nut");
 emo.Runtime().import("game/block.nut");
 emo.Runtime().import("game/slot.nut");
 emo.Runtime().import("game/level.nut");
