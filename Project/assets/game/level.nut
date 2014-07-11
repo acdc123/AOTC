@@ -1,7 +1,7 @@
 class aotc.game.Level extends aotc.gen.Level {
 
 	stage = emo.Stage;
-	blockSprite = aotc.game.Sprite(SPRITE_BLOCK);
+	blockList = [];
 	slotList = [];
 	dragStart = false;
 	
@@ -9,28 +9,30 @@ class aotc.game.Level extends aotc.gen.Level {
 		return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
 	}
 	
-	function selectBlock(mevent){
-		if (blockSprite.contains(mevent.getX(), mevent.getY())) {
-			blockSprite.setSelected(true); 
+	function selectBlock(block, mevent){
+		if (block.contains(mevent.getX(), mevent.getY())) {
+			block.setSelected(true);
+			return true;
+		}	
+		return false;
+	}
+	
+	function displaceBlock(block, mevent){
+		if (block.isSelected()) {
+			block.moveCenter(mevent.getX(), mevent.getY());
 		}	
 	}
 	
-	function displaceBlock(mevent){
-		if (blockSprite.isSelected()) {
-			blockSprite.moveCenter(mevent.getX(), mevent.getY());
-		}	
-	}
-	
-	function stopBlock(){
-		if (blockSprite.isSelected()) {
-			blockSprite.setSelected(false); 
+	function stopBlock(block){
+		if (block.isSelected()) {
+			block.setSelected(false); 
 		}
 		
 		local min = 1 << 31 - 1;
 		local minIndex = -1;	
 		for (local i = 0; i < slotList.len(); i++) {
-			if (blockSprite.collidesWith(slotList[i])) {
-				local dist = getDistance(blockSprite.getX(), blockSprite.getY(), slotList[i].getX(), slotList[i].getY());
+			if (block.collidesWith(slotList[i])) {
+				local dist = getDistance(block.getX(), block.getY(), slotList[i].getX(), slotList[i].getY());
 				if (dist < min) {
 					min = dist;
 					minIndex = i;
@@ -38,24 +40,34 @@ class aotc.game.Level extends aotc.gen.Level {
 			}
 		}
 		if (minIndex != -1) {
-			blockSprite.move(slotList[minIndex].getX(), slotList[minIndex].getY());
+			block.move(slotList[minIndex].getX(), slotList[minIndex].getY());
 		}
 	}
 	
 	function onActionDown(mevent){	
-		selectBlock(mevent);  	 
+		for (local i = 0; i < blockList.len(); i++) {
+			if (selectBlock(blockList[i], mevent)) {
+				break;
+			}
+		}
 	}
 		
 	function onActionMove(mevent){
-    	displaceBlock(mevent);
+    for (local i = 0; i < blockList.len(); i++) {
+			displaceBlock(blockList[i], mevent);
+		}
 	}
 	
 	function onActionUp(mevent){
-		stopBlock();
+		for (local i = 0; i < blockList.len(); i++) {
+			stopBlock(blockList[i]);
+		}
 	}
 	
 	function onActionCancel(mevent){
-		stopBlock();
+		for (local i = 0; i < blockList.len(); i++) {
+			stopBlock(blockList[i]);
+		}
 	}
 		
 	function initializeSlots(){
@@ -71,8 +83,15 @@ class aotc.game.Level extends aotc.gen.Level {
 	}
 	
 	function initializeBlocks(){
-		blockSprite.moveCenter(stage.getCenterX(), stage.getCenterY() - 50);
-		blockSprite.load();
+		for (local i = 0; i < 3; i++) {
+			local block = aotc.game.Block();
+			blockList.push(block);
+			block.moveCenter(stage.getCenterX() - 80 + 80 * i, stage.getCenterY() - 50);	
+		}
+		for (local i = 0; i < 3; i++) {
+			blockList[i].load();
+		}
+
 	}
 	
 	function onLoad() {

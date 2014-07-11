@@ -16,15 +16,12 @@ class aotc.gen.Level {
 	}
 
 	function onGainedFocus() {
-
 	}
-
+	
 	function onLostFocus() {
-
 	}
 
 	function onDispose() {
-
 	}
 
 	function onMotionEvent(mevent) {
@@ -38,7 +35,7 @@ class aotc.gen.Level {
 			onActionUp(mevent);
 		}
 		else if (mevent.getAction() == MOTION_EVENT_ACTION_CANCEL){
-		    onActionCancel(mevent);
+		  onActionCancel(mevent);
 		}
 	}
 }

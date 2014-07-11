@@ -10,6 +10,7 @@ emo.Runtime().import("gen/level.nut");
 emo.Runtime().import("constants/gameConst.nut");
 emo.Runtime().import("constants/spriteConst.nut");
 
+emo.Runtime().import("game/block.nut");
 emo.Runtime().import("game/level.nut");
 
 emo.Runtime().setOptions(OPT_ORIENTATION_PORTRAIT);
