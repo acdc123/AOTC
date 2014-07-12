@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TextureAtlas imagePath="game_sheet.png">
+<TextureAtlas imagePath="game_test_sheet.png">
 	<SubTexture name="slot" x="0" y="0" width="64" height="64" />
 	<SubTexture name="red" x="64" y="0" width="64" height="64" />
 	<SubTexture name="green" x="128" y="0" width="64" height="64" />
