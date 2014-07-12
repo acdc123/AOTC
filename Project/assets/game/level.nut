@@ -3,6 +3,7 @@ class aotc.game.Level extends aotc.gen.Level {
 	stage = emo.Stage;
 	blockList = [];
 	slotList = [];
+	debugText = aotc.game.NormalFont();
 	dragStart = false;
 	
 	function getDistance(x1, y1, x2, y2) {
@@ -69,6 +70,11 @@ class aotc.game.Level extends aotc.gen.Level {
 			stopBlock(blockList[i]);
 		}
 	}
+
+	function initializeText() {
+		debugText.setText("DEBUG TEXT! *");
+		debugText.load();
+	}
 		
 	function initializeSlots(){
 		for (local i = 0; i < 3; i++) {
@@ -99,5 +105,6 @@ class aotc.game.Level extends aotc.gen.Level {
 	function onLoad() {
 		initializeSlots();
 		initializeBlocks();
+		initializeText();
 	}
 }

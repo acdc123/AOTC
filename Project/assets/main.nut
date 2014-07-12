@@ -5,17 +5,20 @@ aotc <- {
 
 emo.Runtime().import("gen/util.nut");
 emo.Runtime().import("gen/spritesheet.nut");
+emo.Runtime().import("gen/textsprite.nut");
 emo.Runtime().import("gen/level.nut");
 
 emo.Runtime().import("constants/gameConst.nut");
 emo.Runtime().import("constants/spriteConst.nut");
+
+emo.Runtime().import("game/normal_font.nut");
 
 emo.Runtime().import("game/logic.nut");
 emo.Runtime().import("game/block.nut");
 emo.Runtime().import("game/slot.nut");
 emo.Runtime().import("game/level.nut");
 
-emo.Runtime().setOptions(OPT_ORIENTATION_PORTRAIT);
+emo.Runtime().setOptions(OPT_ORIENTATION_LANDSCAPE);
 
 class aotc.game.Main {
     /*
