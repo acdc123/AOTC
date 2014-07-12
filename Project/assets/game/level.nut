@@ -21,6 +21,9 @@ class aotc.game.Level extends aotc.gen.Level {
 	function displaceBlock(block, mevent){
 		if (block.isSelected()) {
 			block.moveCenter(mevent.getX(), mevent.getY());
+			if (block.slot != null) {
+				block.slot.detachBlock();
+			}
 		}	
 	}
 	
@@ -41,6 +44,7 @@ class aotc.game.Level extends aotc.gen.Level {
 			}
 		}
 		if (minIndex != -1) {
+			slotList[minIndex].attachBlock(block);
 			block.move(slotList[minIndex].getX(), slotList[minIndex].getY());
 		}
 	}

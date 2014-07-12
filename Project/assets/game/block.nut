@@ -1,5 +1,6 @@
 class aotc.game.Block extends aotc.game.SpriteSheet {
   selected = false;
+  slot = null;
 
   constructor(type) {
     base.constructor(ATLAS_GAME);
