@@ -93,11 +93,13 @@ class aotc.game.Level extends aotc.gen.Level {
 	}
 	
 	function initializeBlocks(){
-		local z = Z_ORDER_BLOCK_START;
+		srand(time());
+		local z = Z_ORDER_BLOCK_START - 1;
 		for (local i = 0; i < 3; i++) {
-			local block = aotc.game.Block(i);
+			local block = aotc.game.Block(0, rand() % (MAX_BLOCK_VALUE + 1));
 			blockList.push(block);
-			block.setZ(z--);
+			block.setZ(z);
+			z -= 2;
 			block.moveCenter(stage.getCenterX() - 80 + 80 * i, stage.getCenterY() - 50);	
 		}
 		for (local i = 0; i < 3; i++) {
