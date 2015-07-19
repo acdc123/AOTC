@@ -6,6 +6,11 @@ class aotc.game.Level extends aotc.gen.Level {
 	debugText = aotc.game.NormalFont();
 	dragStart = false;
 	
+	// Offset from the cursor when the block is selected.
+	// Used to prevent the block from jumping to the pointer location when initially selected.
+	offsetX = -1;
+	offsetY = -1;
+	
 	function getDistance(x1, y1, x2, y2) {
 		return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
 	}
@@ -13,6 +18,8 @@ class aotc.game.Level extends aotc.gen.Level {
 	function selectBlock(block, mevent){
 		if (block.contains(mevent.getX(), mevent.getY())) {
 			block.setSelected(true);
+			offsetX = block.getX() + block.getWidth() / 2 - mevent.getX();
+			offsetY = block.getY() + block.getHeight() / 2 - mevent.getY();
 			return true;
 		}	
 		return false;
@@ -20,7 +27,7 @@ class aotc.game.Level extends aotc.gen.Level {
 	
 	function displaceBlock(block, mevent){
 		if (block.isSelected()) {
-			block.moveCenter(mevent.getX(), mevent.getY());
+			block.moveCenter(mevent.getX() + offsetX, mevent.getY() + offsetY);
 			if (block.slot != null) {
 				block.slot.detachBlock();
 			}
