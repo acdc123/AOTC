@@ -1,6 +1,7 @@
 class aotc.game.Level extends aotc.gen.Level {
 
 	stage = emo.Stage;
+	tileList = [];
 	blockList = [];
 	slotList = [];
 	debugText = aotc.game.NormalFont();
@@ -10,6 +11,21 @@ class aotc.game.Level extends aotc.gen.Level {
 	// Used to prevent the block from jumping to the pointer location when initially selected.
 	offsetX = -1;
 	offsetY = -1;
+	
+	function drawBackground() {
+		local x = 0;
+		local y = 0;
+		while (y < stage.windowHeight()) {
+			x = 0;
+			while (x < stage.windowWidth()) {
+				local tile = aotc.game.TileBackground();
+				tile.move(x, y);
+				tile.load();
+				x += TILE_WIDTH;
+			}
+			y += TILE_HEIGHT;
+		}
+	}
 	
 	function getDistance(x1, y1, x2, y2) {
 		return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
@@ -116,6 +132,7 @@ class aotc.game.Level extends aotc.gen.Level {
 	}
 	
 	function onLoad() {
+		drawBackground();
 		initializeSlots();
 		initializeBlocks();
 		initializeText();

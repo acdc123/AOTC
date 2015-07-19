@@ -1,4 +1,7 @@
 MIN_DIST_TO_MOVE_IN_SLOT	<- 1 << 31 - 1;
 Z_ORDER_BLOCK_START <- 30;
 BLOCK_TYPES <- ["red", "green", "blue"];
+BACKGROUND_TILE <- "tile";
+TILE_WIDTH <- 70;
+TILE_HEIGHT <- 70;
 MAX_BLOCK_VALUE <- 20;

@@ -9,6 +9,7 @@ class aotc.game.Block extends aotc.game.SpriteSheet {
     base.constructor(ATLAS_GAME);
     frame = BLOCK_TYPES[type];
     this.value = value;
+		base.setZ(2);
 
     valueSprite = aotc.game.NormalFont();
     valueSprite.setText(value);

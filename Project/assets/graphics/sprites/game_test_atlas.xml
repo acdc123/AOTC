@@ -4,4 +4,5 @@
 	<SubTexture name="red" x="64" y="0" width="64" height="64" />
 	<SubTexture name="green" x="128" y="0" width="64" height="64" />
 	<SubTexture name="blue" x="192" y="0" width="64" height="64" />
+	<SubTexture name="tile" x="0" y="64" width="70" height="70" />
 </TextureAtlas>

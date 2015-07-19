@@ -18,6 +18,7 @@ emo.Runtime().import("game/logic.nut");
 emo.Runtime().import("game/block.nut");
 emo.Runtime().import("game/slot.nut");
 emo.Runtime().import("game/level.nut");
+emo.Runtime().import("game/tile_background.nut");
 
 emo.Runtime().setOptions(OPT_ORIENTATION_LANDSCAPE);
 
