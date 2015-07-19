@@ -13,6 +13,7 @@ emo.Runtime().import("constants/spriteConst.nut");
 
 emo.Runtime().import("game/normal_font.nut");
 
+emo.Runtime().import("game/equation.nut");
 emo.Runtime().import("game/logic.nut");
 emo.Runtime().import("game/block.nut");
 emo.Runtime().import("game/slot.nut");
@@ -54,11 +55,13 @@ class aotc.game.Main {
      */
     function onMotionEvent(mevent) {
         if (mevent.getAction() == MOTION_EVENT_ACTION_DOWN) {
-            print(format("EVENT: %dx%d", mevent.getX(), mevent.getY()));
+            local logic = aotc.game.Logic();
+						local eq = logic.generateSimpleEquation(10);
+						eq.displayDebug();
         }
     }
 }
 
 function emo::onLoad() {
-    emo.Stage().load(aotc.game.Level());
+  emo.Stage().load(aotc.game.Level());
 }
